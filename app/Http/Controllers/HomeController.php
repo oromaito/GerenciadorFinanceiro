@@ -2,27 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Finança;
+use App\Http\Requests\storeMoneyRequest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('home');
+        return view('home.index');
     }
+
+    public function create()
+    {
+        return view('home.registrarDados');
+    }
+
+    public function store(storeMoneyRequest $request, Finança $finança)
+    {
+        $request['user_id'] = auth()->user()->id;
+
+        $finança->create($request->all());
+
+        return redirect('/');
+    }
+
+    
 }
