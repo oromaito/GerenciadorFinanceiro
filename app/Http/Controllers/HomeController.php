@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Finança;
 use App\Http\Requests\storeMoneyRequest;
-use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -27,5 +27,17 @@ class HomeController extends Controller
         return redirect('/');
     }
 
-    
+    public function show(User $user)
+    {
+        $id = auth()->user()->id;
+
+        $user = $user->where('id', $id)->first();
+
+        // dd($user->finanças->all());
+
+        $finanças = $user->finanças->all();
+
+        return view('home.MostrarTabela', compact('finanças', 'user'));
+    }
+
 }

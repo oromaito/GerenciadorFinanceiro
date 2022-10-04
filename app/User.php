@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function finanças(){
-        $this->hasMany(Finança::class);
+        return $this->hasMany(Finança::class);
     }
 }

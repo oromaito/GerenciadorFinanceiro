@@ -18,5 +18,6 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 Route::post('/registrar', 'HomeController@store')->name('registrar.store');
 Route::get('/registrar', 'HomeController@create')->middleware('auth');
+Route::get('/tabelas', 'HomeController@show')->middleware('auth');
 
 
