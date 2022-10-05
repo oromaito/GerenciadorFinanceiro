@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Finança;
+use App\Observers\FinançaObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Finança::observe(FinançaObserver::class);
     }
 }

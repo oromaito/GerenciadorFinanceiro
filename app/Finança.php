@@ -11,8 +11,10 @@ class Finança extends Model
         'user_id',
         'salario',
         'gastoPD',
+        'valorAtual',
+        'status',
+        'duração'
     ];
-
 
     public function user(){
         return $this->belongsTo(User::class);

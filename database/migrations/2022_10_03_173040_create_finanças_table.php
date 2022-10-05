@@ -18,7 +18,9 @@ class CreateFinançasTable extends Migration
             $table->foreignId('user_id');
             $table->double('salario');
             $table->double('gastoPD');
-            $table->double('valorAtual');
+            $table->double('valorAtual')->nullable();
+            $table->text('status')->nullable();
+            $table->double('duração');
             $table->timestamps();
         });
     }

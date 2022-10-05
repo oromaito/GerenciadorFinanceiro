@@ -24,8 +24,8 @@ class storeMoneyRequest extends FormRequest
     public function rules()
     {
         return [
-            'salario' => 'required',
-            'gastoPD' => 'required'
+            'salario' => 'required|numeric',
+            'gastoPD' => 'required|numeric'
         ];
     }
 }
