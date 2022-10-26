@@ -28,7 +28,7 @@
             btn.addEventListener('click', function(){
                 if(gastoPD.value > salario.value)
                 {
-                    message.style="dsiplay: block";
+                    message.style="display: block";
                     message.innerText = "o gasto não pode ser maior que o valor inicial"
                     btn.disabled = true;
                 }

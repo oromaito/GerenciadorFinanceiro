@@ -41,16 +41,14 @@ class HomeController extends Controller
 
         foreach ($finanças as $finança) {
             // calculo de datas
-            if($finança->status == 'ativa'){
+            if($finança->status != 'Encerrada')
+            {
                 array_push($datas, date('d')-$finança->created_at->format('d'));
                 $dinheiroCalc = $finança->salario - ($finança->gastoPD*($datas[$i]));
                 array_push($dinheiroRestante, $dinheiroCalc);
                 $finança->valorAtual = $dinheiroCalc;
                 $finança->save();
                 $i++;
-            }
-            else{
-                break;
             }
         }
 

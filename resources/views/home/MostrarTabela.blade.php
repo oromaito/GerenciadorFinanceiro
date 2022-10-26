@@ -14,6 +14,7 @@
                 <th>dinheiroTotal</th>
                 <th>Gasto por dia</th>
                 <th>valor atual</th>
+                <th>Duração</th>
                 <th>data de inicio</th>
                 <th>Status</th>
             </tr>
@@ -25,6 +26,9 @@
                     <td>{{$finança->gastoPD}}</td>
                     <td>
                         {{$finança->valorAtual}}
+                    </td>
+                    <td>
+                        {{$finança->duração}}
                     </td>
                     <td>
                         {{$finança->created_at->format('d/m/y')}}
